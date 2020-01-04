@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/scoreView"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="29dp"
+        android:background="#33DFFF"
+        android:gravity="center"
+        android:text="0/0"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/option2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/counterView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="9dp"
+        android:background="#FFCA33"
+        android:text="60S"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/operationView"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginLeft="69dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="5 + 1"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/option2"
+        app:layout_constraintEnd_toStartOf="@+id/scoreView"
+        app:layout_constraintStart_toEndOf="@+id/counterView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/option2"
+        android:layout_width="181dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:background="#9433FF"
+        android:onClick="checkAnswer"
+        android:tag="option2"
+        android:text="60"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreView" />
+
+    <Button
+        android:id="@+id/option1"
+        android:layout_width="181dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="29dp"
+        android:background="#FF6433"
+        android:onClick="checkAnswer"
+        android:tag="option1"
+        android:text="60"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/counterView" />
+
+    <Button
+        android:id="@+id/option3"
+        android:layout_width="181dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:background="#3385FF"
+        android:onClick="checkAnswer"
+        android:tag="option3"
+        android:text="60"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toStartOf="@+id/option4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/option1" />
+
+    <Button
+        android:id="@+id/option4"
+        android:layout_width="181dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:background="#6E9D5F"
+        android:onClick="checkAnswer"
+        android:tag="option4"
+        android:text="60"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/option3"
+        app:layout_constraintTop_toBottomOf="@+id/option2" />
+
+    <Button
+        android:id="@+id/gobtn"
+        android:layout_width="136dp"
+        android:layout_height="113dp"
+        android:background="#6E9D5F"
+        android:onClick="startGame"
+        android:text="GO!"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/tryAgainbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="tryAgain"
+        android:text="Try Again"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gobtn"
+        app:layout_constraintVertical_bias="0.081" />
+</androidx.constraintlayout.widget.ConstraintLayout>
