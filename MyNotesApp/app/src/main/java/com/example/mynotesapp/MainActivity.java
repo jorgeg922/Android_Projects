@@ -67,36 +67,38 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 final int rowFocus = position;
-                new AlertDialog.Builder(MainActivity.this)
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle("Delete Note")
-                        .setMessage("Would you like to delete this note?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                               // setLanguage("English");
-                                //storedNotesArray.remove(which);
-                                Log.i("remove position:",Integer.toString(rowFocus));
-                                storedNotesArray.remove(rowFocus);
-                                noteContent.remove(rowFocus);
-                                arrayAdapter.notifyDataSetChanged();
-                                try{
-                                    mySharedPreferences.edit().putString("notesTitles", ObjectSerializer.serialize(storedNotesArray)).apply();
-                                    mySharedPreferences.edit().putString("notesContents", ObjectSerializer.serialize(noteContent)).apply();
-                                }catch(Exception e){
-                                    e.printStackTrace();
+                //Log.i("position:", "" + rowFocus);
+                if(rowFocus > 0) {
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setTitle("Delete Note")
+                            .setMessage("Would you like to delete this note?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // setLanguage("English");
+                                    //storedNotesArray.remove(which);
+                                    Log.i("remove position:", Integer.toString(rowFocus));
+                                    storedNotesArray.remove(rowFocus);
+                                    noteContent.remove(rowFocus);
+                                    arrayAdapter.notifyDataSetChanged();
+                                    try {
+                                        mySharedPreferences.edit().putString("notesTitles", ObjectSerializer.serialize(storedNotesArray)).apply();
+                                        mySharedPreferences.edit().putString("notesContents", ObjectSerializer.serialize(noteContent)).apply();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+
                                 }
-
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //setLanguage("Spanish");
-                            }
-                        })
-                        .show();
-
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //setLanguage("Spanish");
+                                }
+                            })
+                            .show();
+                }
                 return true;
             }
         });
